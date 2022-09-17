@@ -18,9 +18,9 @@ export interface NoteProps {
   
   export type NoteAction = AddNoteAction | DeleteNoteAction;
   
-  const newNote = (text: string) : NoteProps => {
+  const newNote = (id: number, text: string) : NoteProps => {
     return {
-        id: 2,
+        id,
         createdAt: new Date(),
         author: "Michelle",
         authorType: "Clinician",
@@ -28,11 +28,14 @@ export interface NoteProps {
       };
   };
   
-  export const noteReducer = (notes: NoteProps[], action: NoteAction) : NoteProps[] => {
+  export const notesReducer = (notes: NoteProps[], action: NoteAction) : NoteProps[] => {
     switch(action.type) {
       case "ADD_NOTE":
-        return [...notes, newNote(action.payload.text)];
-      default: return { ...notes };
+        return [...notes, newNote(notes.length + 1, action.payload.text)];
+      case "DELETE_NOTE":
+        return notes.filter(note => note.id!==action.payload.id);
+      default: 
+        return { ...notes };
     }
   };
   

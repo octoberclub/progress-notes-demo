@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import { noteReducer, NoteProps } from "../reducers/NotesReducer";
+import { notesReducer, NoteProps } from "../reducers/NotesReducer";
 import Note from "./Note";
 import NotesForm from "./NotesForm";
 
@@ -15,7 +15,7 @@ export default function ProgressNotes() {
     },
   ];
 
-  const [notes, dispatch] = useReducer(noteReducer, initialState);
+  const [notes, dispatch] = useReducer(notesReducer, initialState);
   
   const renderOrderedNotes = (notes: NoteProps[]) => {
     const orderedByDate = (notes: NoteProps[]) => {
