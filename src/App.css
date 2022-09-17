@@ -22,6 +22,31 @@ div {
   padding: 4px 12px;
 }
 
+button {
+  padding: 4px 12px;
+  margin:4px;
+  position: relative;
+}
+
+button[aria-label]:focus:after,
+button[aria-label]:hover:after {
+  position: absolute;
+  z-index: 1;
+  top: -2em;
+  left: 0;
+  display: block;
+  overflow: hidden;
+  height: 2em;
+  border-radius: .2em;
+  padding: 0 .7em;
+  content: attr(aria-label);
+  color: #fff;
+  background: #000;
+  font-size: 1em;
+  line-height: 2em;
+  text-align: left;
+}
+
 textarea {
   width: 100%;
   height: 150px;
@@ -40,6 +65,10 @@ textarea {
   border-radius: 5px; /* 5px rounded corners */
   background-color: #ddffdd;
   border-left: 6px solid #04AA6D;
+}
+
+.noteTools {
+  font-size: 32px; 
 }
 
 .addform {

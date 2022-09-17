@@ -33,7 +33,7 @@ export interface NoteProps {
       case "ADD_NOTE":
         return [...notes, newNote(notes.length + 1, action.payload.text)];
       case "DELETE_NOTE":
-        return notes.filter(note => note.id!==action.payload.id);
+        return notes.filter(note => note.id!==action.payload.id);     
       default: 
         return { ...notes };
     }

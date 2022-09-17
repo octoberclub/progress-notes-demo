@@ -1,4 +1,3 @@
-import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import ProgressNotes from './ProgressNotes';
 
@@ -11,7 +10,7 @@ describe('Progress Notes', () => {
 
   it('renders create notes form', () => {
     render(<ProgressNotes />);
-    const linkElement = screen.getByText(/Add/i);
+    const linkElement = screen.getByText(/Add Patient Note/i);
     expect(linkElement).toBeInTheDocument(); 
   });
 
@@ -23,10 +22,19 @@ describe('Progress Notes', () => {
     expect(input.textContent).toBe('123');
 
 
-    const addButton = screen.getByRole('button');
+    const addButton = screen.getByRole('button', { name: /add/i });
     fireEvent.click(addButton);
 
     expect(input.textContent).toBe('');
     expect(screen.getByText(/123/i)).toBeInTheDocument();
+  });
+
+  it('deletes note', () => {
+    render(<ProgressNotes />); 
+
+    const deleteButton = screen.getByRole('button', { name: /delete/i });
+    fireEvent.click(deleteButton);
+
+    expect(screen.queryByText(/We ran out of time/i)).not.toBeInTheDocument();
   });
 });

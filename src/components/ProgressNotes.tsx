@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 import { notesReducer, NoteProps } from "../reducers/NotesReducer";
-import Note from "./Note";
+import NoteCard from "./NoteCard";
 import NotesForm from "./NotesForm";
 
 
@@ -24,7 +24,7 @@ export default function ProgressNotes() {
       });
     };
 
-    return orderedByDate(notes).map((note: NoteProps) => <Note key={note.id} note={note} />);
+    return orderedByDate(notes).map((note: NoteProps) => <NoteCard key={note.id} note={note} dispatch={dispatch} />);
   }
 
   return (

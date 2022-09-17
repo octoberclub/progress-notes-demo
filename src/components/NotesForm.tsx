@@ -22,10 +22,10 @@ export const NotesForm = ({ dispatch }: NotesFormProps) => {
     <div className='addform'>
       <form onSubmit={handleSubmit}>
         <label>
-          Notes:
+          Add Patient Note
           <textarea aria-label="notes" value={text} onChange={handleChange} />
         </label>
-        <input type="submit" aria-label="add notes" value="Add" />
+        <input type="submit" aria-label="add" value="Add" />
       </form>
     </div>
   );
