@@ -15,6 +15,7 @@ export const NotesForm = ({ dispatch }: NotesFormProps) => {
     e.preventDefault();
 
     dispatch({ type: 'ADD_NOTE', payload: { text }});
+    setText('');
   };
 
   return (

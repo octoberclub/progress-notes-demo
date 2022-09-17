@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import ProgressNotes from './ProgressNotes';
 
 describe('Progress Notes', () => { 
@@ -13,5 +13,20 @@ describe('Progress Notes', () => {
     render(<ProgressNotes />);
     const linkElement = screen.getByText(/Add/i);
     expect(linkElement).toBeInTheDocument(); 
+  });
+
+  it('adds note', () => {
+    render(<ProgressNotes />); 
+
+    const input = screen.getByRole('textbox');
+    fireEvent.change(input, { target: { value: 123 } });
+    expect(input.textContent).toBe('123');
+
+
+    const addButton = screen.getByRole('button');
+    fireEvent.click(addButton);
+
+    expect(input.textContent).toBe('');
+    expect(screen.getByText(/123/i)).toBeInTheDocument();
   });
 });
