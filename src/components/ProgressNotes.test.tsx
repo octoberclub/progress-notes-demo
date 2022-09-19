@@ -1,8 +1,8 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import ProgressNotes from './ProgressNotes';
 
-describe('Progress Notes', () => { 
-  it.skip('renders progress notes', () => {
+describe.skip('Progress Notes', () => { 
+  it('renders progress notes', () => {
     render(<ProgressNotes />);
     const linkElement = screen.getByText(/We ran out of time/i);
     expect(linkElement).toBeInTheDocument();
@@ -29,7 +29,7 @@ describe('Progress Notes', () => {
     expect(screen.getByText(/123/i)).toBeInTheDocument();
   });
 
-  it.skip('deletes note', () => {
+  it('deletes note', () => {
     render(<ProgressNotes />); 
 
     const deleteButton = screen.getByRole('button', { name: /delete/i });

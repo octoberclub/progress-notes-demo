@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NoteAction } from "../reducers/NotesReducer";
+import addNote from "../api/AddNote";
 
 interface AddNoteFormProps {
   dispatch: React.Dispatch<NoteAction>;
@@ -13,8 +14,9 @@ export const AddNoteForm = ({ dispatch }: AddNoteFormProps) => {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
+    addNote(text, dispatch);
 
-    dispatch({ type: 'ADD_NOTE', payload: { text } });
     setText('');
   };
 

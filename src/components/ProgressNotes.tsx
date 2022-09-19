@@ -1,19 +1,14 @@
 import { useReducer, useEffect } from "react";
 import { notesReducer, NoteProps } from "../reducers/NotesReducer";
+import loadNotes from "../api/LoadNotes";
 import NoteCard from "./NoteCard";
 import AddNoteForm from "./AddNoteForm";
-
 
 export default function ProgressNotes() {
   const [notes, dispatch] = useReducer(notesReducer, []);
 
   useEffect(() => {
-    async function fetchData() {
-      const response = await fetch('http://localhost:3001/notes');
-      const data = await response.json();
-      dispatch({ type: "LOAD_NOTES", payload: { notes: data }});
-    };
-    fetchData();
+    loadNotes(dispatch);
   }, []);
   
   const renderOrderedNotes = (notes: NoteProps[]) => {

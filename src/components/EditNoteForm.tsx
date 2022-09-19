@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NoteAction, NoteProps } from "../reducers/NotesReducer";
+import editNote from '../api/EditNote';
 
 interface EditNoteFormProps {
     note: NoteProps,
@@ -13,14 +14,13 @@ export const EditNoteForm = ({ note, dispatch, onCloseForm }: EditNoteFormProps)
     setText(e.target.value);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    dispatch({ type: 'EDIT_NOTE', payload: { id: note.id, text } });
+    await editNote(note, text, dispatch);
 
     onCloseForm();
   };
-
 
   const handleAbort = () => {
     onCloseForm();

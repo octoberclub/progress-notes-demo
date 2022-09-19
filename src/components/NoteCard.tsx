@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaEdit, FaTrash } from 'react-icons/fa';
+import deleteNote from "../api/DeleteNote";
 import { NoteAction, NoteProps } from "../reducers/NotesReducer";
 import EditNoteForm from "./EditNoteForm";
 
@@ -14,7 +15,7 @@ export default function NoteCard({ note, dispatch }: NoteCardProps) {
   const formattedDate = (date: Date) => `${date.toLocaleDateString()} ${date.toLocaleTimeString()}`;
   
   const handleDeleteClick = () => {
-    dispatch({ type: 'DELETE_NOTE', payload: { id: note.id } });
+    deleteNote(note.id, dispatch);
   }
 
   const handleEditClick = () => {
@@ -37,11 +38,11 @@ export default function NoteCard({ note, dispatch }: NoteCardProps) {
     return (
       <div className="noteDate">
         <dl>
-            <dt><span>Author:</span></dt>
+            <dt><span>Author: </span></dt>
             <dd><span>{note.author}</span></dd>
-            <dt><span>Created At:</span></dt>
-            <dd><span>{formattedDate(new Date(note.createdAt))}</span></dd> 
-        </dl>
+            <dt><span>Created At: </span></dt>
+            <dd><span>{formattedDate(new Date(note.createdAt))}</span></dd>             
+        </dl>        
         <br/>
       </div>
     )
