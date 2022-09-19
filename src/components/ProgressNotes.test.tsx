@@ -1,11 +1,10 @@
-import { render, screen, fireEvent } from '@testing-library/react';
+import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import ProgressNotes from './ProgressNotes';
 
-describe.skip('Progress Notes', () => { 
-  it('renders progress notes', () => {
+describe('Progress Notes', () => { 
+  it('renders progress notes', async () => {
     render(<ProgressNotes />);
-    const linkElement = screen.getByText(/We ran out of time/i);
-    expect(linkElement).toBeInTheDocument();
+    await screen.findByText(/We ran out of time/i);
   });
 
   it('renders create notes form', () => {
@@ -14,27 +13,29 @@ describe.skip('Progress Notes', () => {
     expect(linkElement).toBeInTheDocument(); 
   });
 
-  it('adds note', () => {
+  it('adds note', async () => {
     render(<ProgressNotes />); 
+    await screen.findByText(/We ran out of time/i); 
 
+    
     const input = screen.getByRole('textbox');
-    fireEvent.change(input, { target: { value: 123 } });
+    await fireEvent.change(input, { target: { value: 123 } });
     expect(input.textContent).toBe('123');
-
-
+    
     const addButton = screen.getByRole('button', { name: /add/i });
-    fireEvent.click(addButton);
+    await fireEvent.click(addButton);
 
     expect(input.textContent).toBe('');
-    expect(screen.getByText(/123/i)).toBeInTheDocument();
+    await screen.findByText(/123/i);
   });
 
-  it('deletes note', () => {
+  it('deletes note', async () => {
     render(<ProgressNotes />); 
+    await screen.findByText(/We ran out of time/i);
 
     const deleteButton = screen.getByRole('button', { name: /delete/i });
-    fireEvent.click(deleteButton);
-
-    expect(screen.queryByText(/We ran out of time/i)).not.toBeInTheDocument();
+    await fireEvent.click(deleteButton);
+    
+    await waitFor(() => expect(screen.queryByText(/We ran out of time/i)).not.toBeInTheDocument());
   });
 });
