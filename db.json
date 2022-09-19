@@ -12,7 +12,14 @@
       "createdAt": "2022-09-19T19:59:03.500Z",
       "author": "System",
       "authorType": "System",
-      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dolor purus non enim praesent elementum. Sed turpis tincidunt id aliquet risus feugiat in ante metus. Morbi tincidunt ornare massa eget egestas. Pharetra massa"
+      "text": "System Update: Patient uploaded a new questionnaire"
+    },
+    {
+      "id": 3,
+      "createdAt": "2022-09-18T10:07:58.680Z",
+      "author": "Merlin",
+      "authorType": "Clinician",
+      "text": "Merlin's note - no one else can delete this"
     }
   ],
   "users": [

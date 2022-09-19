@@ -1,4 +1,6 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
+import UserContext from '../UserContext';
+
 import ProgressNotes from './ProgressNotes';
 
 describe('Progress Notes', () => { 
@@ -16,7 +18,6 @@ describe('Progress Notes', () => {
   it('adds note', async () => {
     render(<ProgressNotes />); 
     await screen.findByText(/We ran out of time/i); 
-
     
     const input = screen.getByRole('textbox');
     await fireEvent.change(input, { target: { value: 123 } });
@@ -30,7 +31,12 @@ describe('Progress Notes', () => {
   });
 
   it('deletes note', async () => {
-    render(<ProgressNotes />); 
+    // render();
+    render(
+      <UserContext.Provider value={{ user: 'Michelle', setUser: () => {}}}>
+        <ProgressNotes />
+      </UserContext.Provider>
+    );
     await screen.findByText(/We ran out of time/i);
 
     const deleteButton = screen.getAllByRole('button', { name: /delete/i })[0];
