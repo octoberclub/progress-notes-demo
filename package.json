@@ -1,7 +1,7 @@
 {
   "name": "progress-notes-demo",
   "homepage": "https://octoberclub.github.io/progress-notes-demo",
-  "proxy": "http://localhost:3001",
+  "proxy": "https://my-json-server.typicode.com/octoberclub/progress-notes-demo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
