@@ -40,13 +40,13 @@ export default function NoteCard({ note, dispatch }: NoteCardProps) {
             <dt><span>Author:</span></dt>
             <dd><span>{note.author}</span></dd>
             <dt><span>Created At:</span></dt>
-            <dd><span>{formattedDate(note.createdAt)}</span></dd> 
+            <dd><span>{formattedDate(new Date(note.createdAt))}</span></dd> 
         </dl>
         <br/>
       </div>
     )
   };
-  
+
   return (
     <div className="card">
       {renderNoteInfo(note)}

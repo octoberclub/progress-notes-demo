@@ -6,6 +6,11 @@ export interface NoteProps {
     text:  string,
   }
   
+  export interface LoadNotesAction {
+    type: 'LOAD_NOTES',
+    payload: { notes: NoteProps[] },
+  }
+
   export interface AddNoteAction {
     type: 'ADD_NOTE',
     payload: { text: string },
@@ -21,7 +26,7 @@ export interface NoteProps {
     payload: { id: number, text: string},
   
   } 
-  export type NoteAction = AddNoteAction | DeleteNoteAction | EditNoteAction;
+  export type NoteAction = AddNoteAction | DeleteNoteAction | EditNoteAction | LoadNotesAction;
   
   const newNote = (id: number, text: string) : NoteProps => {
     return {
@@ -35,6 +40,8 @@ export interface NoteProps {
   
   export const notesReducer = (notes: NoteProps[], action: NoteAction) : NoteProps[] => {
     switch(action.type) {
+      case "LOAD_NOTES":
+        return [...action.payload.notes];
       case "ADD_NOTE":
         return [...notes, newNote(notes.length + 1, action.payload.text)];
       case "DELETE_NOTE":

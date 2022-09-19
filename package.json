@@ -1,6 +1,7 @@
 {
   "name": "progress-notes-demo",
   "homepage": "https://octoberclub.github.io/progress-notes-demo",
+  "proxy": "http://localhost:3001",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -1,21 +1,20 @@
-import { useReducer } from "react";
+import { useReducer, useEffect } from "react";
 import { notesReducer, NoteProps } from "../reducers/NotesReducer";
 import NoteCard from "./NoteCard";
 import AddNoteForm from "./AddNoteForm";
 
 
 export default function ProgressNotes() {
-  const initialState = [
-    {
-      id: 1,
-      createdAt: new Date(),
-      author: "Michelle",
-      authorType: "Clinician",
-      text: "We ran out of time to successfully complete the first appointment so have booked in a follow up tomorrow afternoon.",
-    },
-  ];
+  const [notes, dispatch] = useReducer(notesReducer, []);
 
-  const [notes, dispatch] = useReducer(notesReducer, initialState);
+  useEffect(() => {
+    async function fetchData() {
+      const response = await fetch('http://localhost:3001/notes');
+      const data = await response.json();
+      dispatch({ type: "LOAD_NOTES", payload: { notes: data }});
+    };
+    fetchData();
+  }, []);
   
   const renderOrderedNotes = (notes: NoteProps[]) => {
     const orderedByDate = (notes: NoteProps[]) => {
@@ -23,8 +22,8 @@ export default function ProgressNotes() {
         return a.createdAt < b.createdAt ? -1 : a.createdAt > b.createdAt ? 1 : 0;
       });
     };
-
-    // this could be an ordered list html element
+    
+    // this could be an ordered list html
     return (
       <div className="notesList">
         {orderedByDate(notes).map((note: NoteProps) => {

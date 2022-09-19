@@ -1,8 +1,28 @@
 import { notesReducer } from './NotesReducer';
 
 describe('NotesReducer', () => {
+
+  it('should load notes', () => {
+    const notes = notesReducer([], {
+      type: 'LOAD_NOTES', payload: {
+        notes: [
+          {
+            id: 1,
+            createdAt: new Date(),
+            author: "Michelle",
+            authorType: "Clinician",
+            text: 'My text',
+          },
+        ]
+      }
+    });
+
+    expect(notes).toMatchObject([{
+      text: 'My text',
+    }]);
+  });
   it('should add note text to empty list', () => {
-    const notes = notesReducer([], { type: 'ADD_NOTE', payload: { text: 'My text'}});
+    const notes = notesReducer([], { type: 'ADD_NOTE', payload: { text: 'My text' } });
 
     expect(notes).toMatchObject([{
       text: 'My text',
@@ -18,7 +38,7 @@ describe('NotesReducer', () => {
       text: 'initial text'
     };
 
-    const notes = notesReducer([initialItem], { type: 'ADD_NOTE', payload: { text: 'more text'}});
+    const notes = notesReducer([initialItem], { type: 'ADD_NOTE', payload: { text: 'more text' } });
 
     expect(notes).toMatchObject([{
       id: 1,
@@ -26,7 +46,7 @@ describe('NotesReducer', () => {
     }, {
       id: 2,
       text: 'more text',
-    }]); 
+    }]);
   });
 
   it('should remove note from list', () => {
@@ -38,9 +58,9 @@ describe('NotesReducer', () => {
       text: 'initial text'
     };
 
-    const notes = notesReducer([initialItem], { type: 'DELETE_NOTE', payload: { id: 1}});
+    const notes = notesReducer([initialItem], { type: 'DELETE_NOTE', payload: { id: 1 } });
 
-    expect(notes).toEqual([]); 
+    expect(notes).toEqual([]);
   });
 
 
@@ -53,7 +73,7 @@ describe('NotesReducer', () => {
       text: 'initial text'
     };
 
-    const notes = notesReducer([initialItem], { type: 'EDIT_NOTE', payload: { id: 1, text: 'updated text'}});
+    const notes = notesReducer([initialItem], { type: 'EDIT_NOTE', payload: { id: 1, text: 'updated text' } });
 
     expect(notes).toMatchObject([{
       id: 1,

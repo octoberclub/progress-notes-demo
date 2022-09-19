@@ -1,0 +1,17 @@
+{
+  "notes": [
+    {
+      "id": 1,
+      "createdAt": "2022-09-19T10:07:58.680Z",
+      "author": "Michelle",
+      "authorType": "Clinician",
+      "text": "We ran out of time to successfully complete the first appointment so have booked in a follow up tomorrow afternoon."
+    }
+  ],
+  "users": [
+    {
+      "name": "Michelle",
+      "type": "Clinician"
+    }
+  ]
+}
