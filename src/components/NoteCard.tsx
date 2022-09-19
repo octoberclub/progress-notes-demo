@@ -32,10 +32,24 @@ export default function NoteCard({ note, dispatch }: NoteCardProps) {
       </div>
     )
   }
+
+  const renderNoteInfo = (note: NoteProps) => {
+    return (
+      <div className="noteDate">
+        <dl>
+            <dt><span>Author:</span></dt>
+            <dd><span>{note.author}</span></dd>
+            <dt><span>Created At:</span></dt>
+            <dd><span>{formattedDate(note.createdAt)}</span></dd> 
+        </dl>
+        <br/>
+      </div>
+    )
+  };
   
   return (
     <div className="card">
-      <div className="noteDate">{formattedDate(note.createdAt)}</div>
+      {renderNoteInfo(note)}
       <div className="note">{note.text}</div>
       <div className="noteTools">
         <button onClick={(handleEditClick)} aria-label='edit'>

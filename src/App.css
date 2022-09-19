@@ -24,7 +24,7 @@ div {
 
 button {
   padding: 4px 12px;
-  margin:4px;
+  margin: 4px;
   position: relative;
 }
 
@@ -59,28 +59,56 @@ textarea {
   resize: none;
 }
 
+dt,
+dd {
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+dt {
+  clear: both;
+  font-weight: bold
+}
+
+dt span {
+  display: inline-block;
+  /* width: 70px; */
+}
+
+dd span {
+  display: inline-block;
+  margin-right: 5px;
+}
+
 .card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  border-radius: 5px; /* 5px rounded corners */
+  border-radius: 5px;
+  /* 5px rounded corners */
   background-color: #ddffdd;
   border-left: 6px solid #04AA6D;
 }
 
 .noteTools {
-  font-size: 32px; 
+  font-size: 32px;
 }
 
 .addform {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0);
   transition: 0.3s;
-  border-radius: 0px; /* 5px rounded corners */
+  border-radius: 0px;
+  /* 5px rounded corners */
   background-color: #ddfcff32;
   border-left: 6px solid #16252708;
 }
 
 .noteDate {
   font-weight: bold;
+}
+
+.note {
+  float: left;
 }
 
 .noteTools {
@@ -90,5 +118,5 @@ textarea {
 
 /* On mouse-over, add a deeper shadow */
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
