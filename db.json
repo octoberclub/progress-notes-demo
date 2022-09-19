@@ -6,11 +6,22 @@
       "author": "Michelle",
       "authorType": "Clinician",
       "text": "We ran out of time to successfully complete the first appointment so have booked in a follow up tomorrow afternoon."
+    },
+    {
+      "id": 2,
+      "createdAt": "2022-09-19T19:59:03.500Z",
+      "author": "System",
+      "authorType": "System",
+      "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Dolor purus non enim praesent elementum. Sed turpis tincidunt id aliquet risus feugiat in ante metus. Morbi tincidunt ornare massa eget egestas. Pharetra massa"
     }
   ],
   "users": [
     {
       "name": "Michelle",
+      "type": "Clinician"
+    },
+    {
+      "name": "Merlin",
       "type": "Clinician"
     }
   ]

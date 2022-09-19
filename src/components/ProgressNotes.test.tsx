@@ -33,7 +33,7 @@ describe('Progress Notes', () => {
     render(<ProgressNotes />); 
     await screen.findByText(/We ran out of time/i);
 
-    const deleteButton = screen.getByRole('button', { name: /delete/i });
+    const deleteButton = screen.getAllByRole('button', { name: /delete/i })[0];
     await fireEvent.click(deleteButton);
     
     await waitFor(() => expect(screen.queryByText(/We ran out of time/i)).not.toBeInTheDocument());

@@ -20,7 +20,7 @@ export default function ProgressNotes() {
     
     // this could be an ordered list html
     return (
-      <div className="notesList">
+      <div className="notes-list">
         {orderedByDate(notes).map((note: NoteProps) => {
           return (
               <NoteCard key={note.id} note={note} dispatch={dispatch} />

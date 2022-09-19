@@ -27,7 +27,7 @@ export const EditNoteForm = ({ note, dispatch, onCloseForm }: EditNoteFormProps)
   };
 
   return (
-    <div className='addForm'>
+    <div className='form-edit'>
       <form onSubmit={handleSubmit}>
         <textarea aria-label="notes" value={text} onChange={handleChange} />
         <button aria-label="save" disabled={text===''}>

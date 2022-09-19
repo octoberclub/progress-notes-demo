@@ -21,7 +21,7 @@ export const AddNoteForm = ({ dispatch }: AddNoteFormProps) => {
   };
 
   return (
-    <div className='addform'>
+    <div className='form-add'>
       <form onSubmit={handleSubmit}>
         <textarea aria-label="notes" placeholder='Add patient note here' value={text} onChange={handleChange} />
         <button aria-label="add" disabled={text===''}>

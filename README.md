@@ -20,6 +20,16 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `npx json-server --watch db.json --port=3001`
+
+Run the api test server on port 3001 using [json-server](https://github.com/typicode/json-server)
+
+View the /GET notes mock rest endpoint
+[http://localhost:3001/notes](http://localhost:3000/notes)
+
+
+If you get the error `Proxy error: Could not proxy request /notes/ from localhost:3000 to http://localhost:3001` please check you have the above server running peoperly and look at [json-server](https://github.com/typicode/json-server) documentation
+
 ### `npm start`
 
 Runs the app in the development mode.\

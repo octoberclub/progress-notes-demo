@@ -45,6 +45,7 @@ button[aria-label]:hover:after {
   font-size: 1em;
   line-height: 2em;
   text-align: left;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 textarea {
@@ -57,6 +58,11 @@ textarea {
   background-color: #f8f8f8;
   font-size: 16px;
   resize: none;
+}
+
+/* On mouse-over, add a deeper shadow */
+.textarea:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 dt,
@@ -73,28 +79,38 @@ dt {
 
 dt span {
   display: inline-block;
-  /* width: 70px; */
-}
-
-dd span {
-  display: inline-block;
-  margin-right: 5px;
+  width: 120px;
+  margin-bottom: 10px;
 }
 
 .card {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   border-radius: 5px;
   /* 5px rounded corners */
   background-color: #ddffdd;
   border-left: 6px solid #04AA6D;
+  text-align: left;
+  font-size: 18px;
 }
 
-.noteTools {
-  font-size: 32px;
+.card-note-clinician {
+  text-align: left;
+  font-size: 18px;
+  background-color:#fff;
+  padding: 20px;
 }
 
-.addform {
+.card-note-system {
+  text-align: left;
+  font-size: 18px;
+  background-color: #ddffdd;
+}
+
+.form-add {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0);
   transition: 0.3s;
   border-radius: 0px;
@@ -103,20 +119,30 @@ dd span {
   border-left: 6px solid #16252708;
 }
 
-.noteDate {
-  font-weight: bold;
+.form-edit {
+  flex-direction: column;
+  flex: 1;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0);
+  transition: 0.3s;
+  border-radius: 0px;
+  /* 5px rounded corners */
+  background-color: #ddfcff32;
+  border-left: 6px solid #16252708;
 }
 
-.note {
-  float: left;
+.note-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
 }
 
-.noteTools {
+.note-tools {
   text-align: right;
   margin-right: 10px;
 }
 
 /* On mouse-over, add a deeper shadow */
-.card:hover {
+.card-note-clinician:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }

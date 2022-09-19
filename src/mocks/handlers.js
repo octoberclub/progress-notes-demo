@@ -7,6 +7,13 @@ const notes = [
         "author": "Michelle",
         "authorType": "Clinician",
         "text": "We ran out of time to successfully complete the first appointment so have booked in a follow up tomorrow afternoon."
+    },
+    {
+        "createdAt": "2022-09-19T17:25:39.295Z",
+        "author": "System",
+        "authorType": "System",
+        "text": "A file was uploaded on 19th September 2022 for viewing later",
+        "id": 2
     }
 ];
 
