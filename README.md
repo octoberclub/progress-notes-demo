@@ -2,6 +2,10 @@
 
 A demo to show a Patient Progress Notes app
 
+## Notes List pulling data from fake API
+![Loaded screen](public/notes-list-loaded.png)
+
+
 The value of this feature is to create a single place to see the current status and history of a patient as they progress through their care journey. 
 
 Some requirements: 
