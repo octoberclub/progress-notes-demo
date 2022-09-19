@@ -1,7 +1,7 @@
 import { useReducer } from "react";
 import { notesReducer, NoteProps } from "../reducers/NotesReducer";
 import NoteCard from "./NoteCard";
-import NotesForm from "./NotesForm";
+import AddNoteForm from "./AddNoteForm";
 
 
 export default function ProgressNotes() {
@@ -24,13 +24,22 @@ export default function ProgressNotes() {
       });
     };
 
-    return orderedByDate(notes).map((note: NoteProps) => <NoteCard key={note.id} note={note} dispatch={dispatch} />);
-  }
+    // this could be an ordered list html element
+    return (
+      <div className="notesList">
+        {orderedByDate(notes).map((note: NoteProps) => {
+          return (
+              <NoteCard key={note.id} note={note} dispatch={dispatch} />
+          );
+        })}
+      </div>
+    );
+  };
 
   return (
     <>
       {renderOrderedNotes(notes)}
-      <NotesForm dispatch={dispatch} />
+      <AddNoteForm dispatch={dispatch} />
     </>
   );
 }

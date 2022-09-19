@@ -10,7 +10,7 @@ describe('Progress Notes', () => {
 
   it('renders create notes form', () => {
     render(<ProgressNotes />);
-    const linkElement = screen.getByText(/Add Patient Note/i);
+    const linkElement = screen.getByText(/Add/i);
     expect(linkElement).toBeInTheDocument(); 
   });
 

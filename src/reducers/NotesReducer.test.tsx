@@ -42,4 +42,22 @@ describe('NotesReducer', () => {
 
     expect(notes).toEqual([]); 
   });
+
+
+  it('should update note in list', () => {
+    const initialItem = {
+      id: 1,
+      createdAt: new Date(),
+      author: "Michelle",
+      authorType: "Clinician",
+      text: 'initial text'
+    };
+
+    const notes = notesReducer([initialItem], { type: 'EDIT_NOTE', payload: { id: 1, text: 'updated text'}});
+
+    expect(notes).toMatchObject([{
+      id: 1,
+      text: 'updated text',
+    }]);
+  });
 });
