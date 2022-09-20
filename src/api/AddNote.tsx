@@ -1,16 +1,16 @@
 import { NoteAction } from "../reducers/NotesReducer";
 
-const newNote = (text: string): any => {
+const newNote = (text: string, author: string): any => {
   return {
     createdAt: new Date(),
-    author: "Michelle",
+    author: author,
     authorType: "Clinician",
     text,
   };
 };
 
-const addNote = async (text: string, dispatch: React.Dispatch<NoteAction>) => {
-  const note = newNote(text);
+const addNote = async (text: string, author: string, dispatch: React.Dispatch<NoteAction>) => {
+  const note = newNote(text, author);
 
   const response = await fetch("notes/", {
     method: "POST",

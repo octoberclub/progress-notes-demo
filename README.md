@@ -2,9 +2,14 @@
 
 A demo to show a Patient Progress Notes app
 
-## Notes List pulling data from fake API
+
 ![Loaded screen](public/notes-list-loaded.png)
 
+### Notes List pulling data from fake API
+[Demo with fake backend](https://octoberclub.github.io/progress-notes-demo/)
+
+
+### Requirements
 
 The value of this feature is to create a single place to see the current status and history of a patient as they progress through their care journey. 
 
@@ -23,16 +28,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 In the project directory, you can run:
-
-### `npx json-server --watch db.json --port=3001`
-
-Run the api test server on port 3001 using [json-server](https://github.com/typicode/json-server)
-
-View the /GET notes mock rest endpoint
-[http://localhost:3001/notes](http://localhost:3000/notes)
-
-
-If you get the error `Proxy error: Could not proxy request /notes/ from localhost:3000 to http://localhost:3001` please check you have the above server running peoperly and look at [json-server](https://github.com/typicode/json-server) documentation
 
 ### `npm start`
 
@@ -57,15 +52,23 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+### `npm run deploy`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Deploy the latest version of the code to gihub pages
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Application will be available here [https://octoberclub.github.io/progress-notes-demo/](https://octoberclub.github.io/progress-notes-demo/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Backend json-server
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Run the api test server on port 3001 using [json-server](https://github.com/typicode/json-server)
+
+### `npx json-server --watch db.json --port=3001`
+
+View the /GET notes mock rest endpoint
+[http://localhost:3001/notes](http://localhost:3000/notes)
+
+
+If you get the error `Proxy error: Could not proxy request /notes/ from localhost:3000 to http://localhost:3001` please check you have the above server running peoperly and look at [json-server](https://github.com/typicode/json-server) documentation
 
 ## Learn More
 

@@ -131,7 +131,6 @@ dt span {
 .note-info {
   display: flex;
   flex-direction: row;
-  flex-basis: 90%;
   flex-wrap: wrap;
 }
 

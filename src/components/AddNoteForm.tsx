@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { NoteAction } from "../reducers/NotesReducer";
+import UserContext from '../UserContext';
 import addNote from "../api/AddNote";
 
 interface AddNoteFormProps {
@@ -8,6 +9,8 @@ interface AddNoteFormProps {
 
 export const AddNoteForm = ({ dispatch }: AddNoteFormProps) => {
   const [text, setText] = useState('');
+  const { user } = useContext(UserContext);
+
   const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setText(e.target.value);
   };
@@ -15,7 +18,7 @@ export const AddNoteForm = ({ dispatch }: AddNoteFormProps) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     
-    addNote(text, dispatch);
+    addNote(text, user, dispatch);
 
     setText('');
   };
